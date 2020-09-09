@@ -2,7 +2,11 @@
 
 A collection of files to add / replace in a Cockpit CMS install, to enable content preview in Singletons. The majority of these changes are copied directly from the preview code for Collections.
 
-## Installation
+**Tested with Cockpit version 0.10.0 only** - May not be a drop-in replacement for newer versions.
+
+## Usage
+
+As always, back up your files before overwriting anything.
 
 These files replicate the folder structure of a Cockpit installation. You can either merge this repository with your existing cockpit installation, or manually add the files from this repository into your `modules/Singletons` folder.
 
