@@ -21,4 +21,4 @@ You can diff the files in this repository with the original versions in the init
 
 While using Cockpit for a client project, I had built out the content assuming "singleton" was meant to be the same thing as "singles" or "single pages" in other content management systems. For various reasons, it was not feasible to re-create the single pages as collections, and thus this fix was developed instead.
 
-See [this forum thread](https://discourse.getcockpit.com/t/preview-for-singletons/1247/3) and [this one](https://discourse.getcockpit.com/t/singletons-vs-regions/316/4) for discussion on what singletons are intended to be used for, and why the preview feature is not available for them by default.
+See [this forum thread](https://discourse.getcockpit.com/t/preview-for-singletons/1247) and [this one](https://discourse.getcockpit.com/t/singletons-vs-regions/316) for discussion on what singletons are intended to be used for, and why the preview feature is not available for them by default.
