@@ -78,6 +78,7 @@
                     <ul class="uk-tab uk-flex uk-margin">
                         <li class="{ view==='fields' ? 'uk-active':'' }" data-view="fields"><a onclick="{ toggleview }">@lang('Fields')</a></li>
                         <li class="{ view==='acl' ? 'uk-active':'' }" data-view="acl"><a onclick="{ toggleview }">@lang('Permissions')</a></li>
+                        <li class="{ view=='other' && 'uk-active'}" data-view="other"><a class="uk-text-capitalize" onclick="{ toggleview }" data-tab="other">{ App.i18n.get('Other') }</a></li>
                     </ul>
 
                     <div class="uk-margin-large-top" show="{ view==='fields' }">
@@ -124,6 +125,34 @@
                                         <div class="uk-margin-top"><field-boolean bind="singleton.acl.{group}.form" label="@lang('Form')"></field-boolean></div>
                                         <div class="uk-margin-top"><field-boolean bind="singleton.acl.{group}.edit" label="@lang('Edit Singleton')"></field-boolean></div>
                                         <div class="uk-margin-top"><field-boolean bind="singleton.acl.{group}.data" label="@lang('Get Singleton Data')"></field-boolean></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="uk-form-row" show="{view=='other'}">
+
+                        <div class="uk-form-row">
+                            <strong class="uk-text-small uk-text-uppercase">@lang('Content Preview')</strong>
+                            <div class="uk-margin-top"><field-boolean bind="singleton.contentpreview.enabled" label="@lang('Enabled')"></field-boolean></div>
+                            <div class="uk-form-icon uk-form uk-width-1-1 uk-text-muted uk-margin-top" show="{singleton.contentpreview && singleton.contentpreview.enabled}">
+                                <i class="uk-icon-globe"></i>
+                                <input class="uk-width-1-1 uk-form-large uk-text-primary" type="url" placeholder="@lang('http://...')" bind="singleton.contentpreview.url">
+                            </div>
+                            <div class="uk-grid uk-margin-top" show="{singleton.contentpreview && singleton.contentpreview.enabled}">
+                                <div class="uk-width-medium-2-3">
+                                    <div class="uk-form-icon uk-form uk-width-1-1 uk-text-muted">
+                                        <i class="uk-icon-random"></i>
+                                        <input class="uk-width-1-1 uk-form-large uk-text-primary" type="url" placeholder="@lang('ws://...')" bind="singleton.contentpreview.wsurl">
+                                    </div>
+                                </div>
+                                <div class="uk-width-medium-1-3">
+                                    <div class="uk-form-icon uk-form uk-width-1-1 uk-text-muted">
+                                        <i class="uk-icon-crosshairs"></i>
+                                        <input class="uk-width-1-1 uk-form-large uk-text-primary" type="text" placeholder="protocol-1, protocol-2" bind="singleton.contentpreview.wsprotocols" title="Websocket Protocol">
                                     </div>
                                 </div>
                             </div>

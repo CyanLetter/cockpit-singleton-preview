@@ -1,3 +1,4 @@
+<script type="riot/tag" src="@base('singletons:assets/singleton-preview.tag')"></script>
 
 <style>
     @if($singleton['color'])
@@ -36,7 +37,9 @@
                 <div class="uk-margin-small-right">
                     <img src="@url($singleton['icon'] ? 'assets:app/media/icons/'.$singleton['icon']:'singletons:icon.svg')" width="40" alt="icon">
                 </div>
-                <div class="uk-flex-item-1">{ singleton.label || singleton.name }</div>
+                <div class="uk-margin-right">{ singleton.label || singleton.name }</div>
+                <a onclick="{showPreview}" if="{ singleton.contentpreview && singleton.contentpreview.enabled }" title="@lang('Preview')"><i class="uk-icon-button uk-icon-eye"></i></a>
+                <div class="uk-flex-item-1"></div>
                 @if($app->module('cockpit')->isSuperAdmin())
                 <a class="uk-button uk-button-outline uk-text-warning" onclick="{showDataObject}">@lang('Show json')</a>
                 @endif
@@ -174,6 +177,8 @@
 
 
         </div>
+
+        <singleton-preview singleton="{singleton}" data="{data}" groups="{ groups }" fields="{ fields }" fieldsidx="{ fieldsidx }" languages="{ languages }" lang="{ lang }" settings="{ singleton.contentpreview }" if="{ preview }"></singleton-preview>
 
         <cp-inspectobject ref="inspect"></cp-inspectobject>
 
@@ -372,6 +377,10 @@
             showDataObject() {
                 $this.refs.inspect.show($this.data);
                 $this.update();
+            }
+
+            showPreview() {
+                this.preview = true;
             }
         </script>
 
